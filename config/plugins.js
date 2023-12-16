@@ -18,12 +18,14 @@ module.exports = ({ env }) => ({
       },
     },
   },
-  "graphql": {
+  graphql: {
     enabled: true,
     config: {
-      // set this to true if you want to enable the playground in production
-      playgroundAlways: false,
-    },
+      apolloServer: {
+        introspection: true,
+      },
+      playgroundAlways: true,
+    }
   },
   "apollo-sandbox": {
     // enables the plugin only in development mode
