@@ -745,13 +745,20 @@ export interface ApiPagePage extends Schema.SingleType {
   info: {
     singularName: 'page';
     pluralName: 'pages';
-    displayName: 'Page';
+    displayName: 'HomePage';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     title: Attribute.String;
+    Slider: Attribute.Component<'slider.slider'>;
+    Language: Attribute.Relation<
+      'api::page.page',
+      'oneToOne',
+      'api::language.language'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -777,6 +784,11 @@ export interface ApiReviewReview extends Schema.CollectionType {
     Name: Attribute.String;
     Review: Attribute.Blocks;
     Picture: Attribute.Media;
+    Language: Attribute.Relation<
+      'api::review.review',
+      'oneToOne',
+      'api::language.language'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
